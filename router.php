@@ -2,6 +2,8 @@
 require_once "ConfigApp.php";
 require_once "controllers/Controlador.php";
 require_once "views/Vista.php";
+require_once "controllers/UsuariosController.php";
+require_once "models/UsuariosModel.php";
 
 function parseURL($url){
     $partesURL = explode("/", $url);

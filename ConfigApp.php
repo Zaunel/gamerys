@@ -4,7 +4,9 @@ class ConfigApp{
      public static $PARAMS = "params";
     public static $ACTIONS = [
     'home' => 'Controlador#irHome',
-    'login' => 'Controlador#irLogin'
+    'login' => 'Controlador#irLogin',
+    'registro' => 'Controlador#irRegistro',
+    'registrar' => 'UsuariosController#registrar'
     ];
 }
 

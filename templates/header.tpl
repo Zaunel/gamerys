@@ -14,7 +14,7 @@
       <nav>
         <div class="nav_parteUno">
          <div class="nav_logo">
-          <img src="imagenes/logo.png" alt="logo" />
+          <a href="home"><img src="imagenes/logo.png" alt="logo" /></a>
           </div>
           <div class="nav_form">
             <form action="">
@@ -29,17 +29,17 @@
             
 
 
-          <button class="boton_nav boton_nav1">Iniciar sesión</button>
-          <button class="boton_nav boton_nav2">Registrarse</button>
+          <button class="boton_nav boton_nav1"><a href="login"'>Iniciar sesión</a></button>
+          <button class="boton_nav boton_nav2"><a href="registro">Registrarse</a></button>
           <button class="boton_nav3">
             <i class="fa-solid fa-cart-shopping icon_cart" "></i>
           </button>
         </div>
         <ul class="nav_parteDos">
-          <li>Categorías</li>
-          <li>PC</li>
-          <li>Xbox</li>
-          <li>PlayStation</li>
+          <li><a>Categorías</a></li>
+          <li><a>PC</a></li>
+          <li><a>Xbox</a></li>
+          <li><a>PlayStation</a></li>
         </ul>
       </nav>
     </header>

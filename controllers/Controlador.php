@@ -14,7 +14,8 @@ class Controlador{
     public function irLogin(){
         $this->view->login();
     }
-//    public function irLogin(){
-//     $this->view->showLogin();
-//    }
+    
+    public function irRegistro(){
+       $this->view->showRegistro(); 
+    }
 }

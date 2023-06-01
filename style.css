@@ -2,7 +2,7 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box; 
-   color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
 }
 
 body{
@@ -37,11 +37,11 @@ nav{
     color: white;
     margin: 0 5px 0 5px;
     padding: 6px 30px;
-    background-color: rgba(0, 0, 0, 0.938);
+    background-color: rgb(0, 0, 0);
     border-radius: 8px 8px 0 0;
 }
 
-.nav_parteDos li:hover, .boton_nav:hover{
+.nav_parteDos li a:hover, .boton_nav a:hover{
     color: rgb(190, 110, 18);
     cursor: pointer;
 }
@@ -80,7 +80,7 @@ main{
 .boton_nav{
     width: 100px;
     height: 40px;
-    background-color: rgba(0, 0, 0, 0.938);
+    background-color: rgb(0, 0, 0);
     border-style: none;
     color: white;
 }
@@ -134,34 +134,26 @@ form{
 
 .contain_login{
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
-    text-align: center;
-}
-
-.login{
-    width: 30%;
-    height: 600px;
-    background-color: rgba(190, 110, 18, 0.418);
-    border-radius: 5%;
-}
-
-.login h1,p{
-    color: white;
-}
-
-.form_login{
-    display: flex;
-    flex-direction: column;
-}
-
-.contain_form{
     width: 100%;
-    display: flex;
-    justify-content: center;
+    height: 60vh;
 }
 
-.form_login input{
-    width: 200px;
+.contain_login div{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+width: 30%;
+height: 400px;
+background-color: rgba(255, 166, 0, 0.479);
+flex-direction: column;
+}
+
+.contain_login input{
+    color: black;
+}
+
+a{
+    text-decoration: none;
 }

@@ -8,15 +8,21 @@ class Vista{
    }
 
    function home(){
-    $rutaBase = 'http://'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/"'. ' target="_blank';
+    $rutaBase = 'http://'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/"';
     $this->smarty->assign('BASE_RUTA', $rutaBase);
     $this->smarty->display('body.tpl');
    }
 
    function login(){
-      $rutaBase = 'http://'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/"'. ' target="_blank';
+      $rutaBase = 'http://'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/"';
       $this->smarty->assign('BASE_RUTA', $rutaBase);
-      $this->smarty->display('body.tpl');
+      $this->smarty->display('login.tpl');
      }
+
+   function showRegistro(){
+      $rutaBase = 'http://'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/"';
+      $this->smarty->assign('BASE_RUTA', $rutaBase);
+      $this->smarty->display('registro.tpl');
+   }
 
 }
