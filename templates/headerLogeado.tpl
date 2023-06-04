@@ -28,9 +28,8 @@
           </div>
             
 
-
-          <button class="boton_nav boton_nav1" id="btn_login"><a href="login">Iniciar sesión</a></button>
-          <button class="boton_nav boton_nav2" id="btn_registro"><a href="registro">Registrarse</a></button>
+          <button class="usuario_logeado" id="btn_usuario_logeado">{$usuario}</button>
+          <a href="cerrar_sesion">Cerrar sesión</a>
           <button class="boton_nav3">
             <i class="fa-solid fa-cart-shopping icon_cart"></i>
           </button>

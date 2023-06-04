@@ -5,8 +5,9 @@ class ConfigApp{
     public static $ACTIONS = [
     'home' => 'Controlador#irHome',
     'login' => 'Controlador#irLogin',
-    'registro' => 'Controlador#irRegistro',
-    'registrar' => 'UsuariosController#registrar'
+    'registro' => 'UsuariosController#registrar',
+    'ingresado' => 'UsuariosController#logear',
+    'cerrar_sesion' => 'UsuariosController#logout'
     ];
 }
 

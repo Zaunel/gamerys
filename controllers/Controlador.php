@@ -8,6 +8,7 @@ class Controlador{
     }
 
     public function irHome(){
+        session_start();
         $this->view->home();
     }
 
@@ -15,7 +16,4 @@ class Controlador{
         $this->view->login();
     }
     
-    public function irRegistro(){
-       $this->view->showRegistro(); 
-    }
 }

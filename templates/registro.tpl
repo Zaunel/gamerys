@@ -1,8 +1,13 @@
 {include file='header.tpl'}
   <section class="contain_login">
     <div>
-      <h2>Registrarse</h2>
-      <form action="UsuariosController.php" method="POST">
+      <h1>Registrarse</h1>
+      {if $titulo_error == null}
+      
+      {else}
+      {$titulo_error}
+      {/if}
+      <form action="registro" method="POST">
         <label for="username">Nombre de usuario:</label><br>
         <input type="text" id="username" name="usuario" required><br><br>
         
@@ -12,7 +17,9 @@
         <label for="contraseña">Contraseña:</label><br>
         <input type="password" id="contraseña" name="contraseña" required><br><br>
         
-        <input type="submit" value="Enviar">
+        <input class="btn_submit" type="submit" value="Registrarse">
+        <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+        <p>¿Ya tienes una cuenta? <a href="login">Iniciar Sesión</a></p>
     </form>
     </div>
   </section>

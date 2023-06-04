@@ -2,17 +2,15 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box; 
-   color: rgb(255, 255, 255);
 }
 
 body{
-    background-color: rgb(0, 0, 0);
-    background-image: url(imagenes/logo2.png);
-    background-size: cover;
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(16, 53, 123));
+    color: black;
 }
 
 nav{
-    background-color: rgb(190, 110, 18);
+    background-color: rgb(81, 138, 245);
     width: 100vw;
     height: auto;
     padding-top: 10px;
@@ -31,6 +29,7 @@ nav{
     justify-content: center;
     list-style: none;
     margin: 5px 0;
+    color: white;
 }
 
 .nav_parteDos li{
@@ -146,14 +145,105 @@ justify-content: space-evenly;
 align-items: center;
 width: 30%;
 height: 400px;
-background-color: rgba(255, 166, 0, 0.479);
+background-color: rgb(255, 255, 255);
 flex-direction: column;
 }
 
+.contain_login h1{
+font-size: 35px;
+}
+
 .contain_login input{
-    color: black;
+    width: 500px;
+    height: 30px;
+}
+
+.contain_login p{
+    text-align: center;
+}
+
+.contain_login label{
+    font-weight: bolder;
+}
+
+.contain_login p a{
+    color: blue;
+    text-decoration: underline;
+}
+
+.btn_submit{
+    background-color: rgb(4, 4, 85);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 a{
     text-decoration: none;
 }
+
+.contain_categorias{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(218, 154, 154);
+}
+
+.categorias{
+    width: 10vw;
+    height: 500px;
+    background-color: white;
+}
+
+.padre_juegos{
+    display: flex;
+    width: 100%;
+    background-color: black;
+}
+
+.apartado_juegos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 60vw;
+    height: auto;
+    background-color: aquamarine;
+}
+
+.apartado_juegos .contain_juego{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: blueviolet;
+}
+
+.contain_img_juego{
+    margin-top: 20px;
+    width: 60%;
+    height: 100px;
+    background-color: aliceblue;
+}
+
+.contain_img_juego img{
+    width: 100%;
+    height: 100%;
+}
+
+.contain_lista_categorias{
+    width: 100%;
+    background-color: blue;
+}
+
+.contain_lista_categorias li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: solid 2px black;
+}
+
