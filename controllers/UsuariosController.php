@@ -18,9 +18,13 @@ class UsuariosController{
             if($count>0){
              $registro = false;
              $this->view->showRegistro($registro);
-            }else{
-             $this->view->login();
-             header("Location: login");
+            }else{ 
+             session_start();
+             $_SESSION["logeado"] = true;
+             $_SESSION["email"] = $email;
+             $_SESSION["username"] = $usuario;
+             header("Location: home");
+             $this->view->home();
             }
         }else{
             $registro = true;
@@ -48,6 +52,8 @@ class UsuariosController{
                }else{
                 echo "Usuario no encontrado";
                }
+             }else{
+                $this->view->login();
              }
         }
 

@@ -1,5 +1,5 @@
 {if $logeado}
-  {include file='headerLogeado.tpl'}
+  {include file='header.tpl'}
   <main>
     <section class="galeria"></section>
   </main>

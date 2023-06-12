@@ -13,7 +13,8 @@ class Controlador{
     }
 
     public function irLogin(){
-        $this->view->login();
+       $this->view->login();
     }
     
+
 }

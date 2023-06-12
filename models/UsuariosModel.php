@@ -1,5 +1,5 @@
 <?php
-require_once('controllers/UsuariosController.php');
+
 class UsuariosModel{
  private $db;
  private $model;
