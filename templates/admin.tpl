@@ -36,7 +36,7 @@
     <section class="sectores" id="sect_categorias">
         <div class="sect_categorias sectores_padres">
        <form action="categorias" method="post">
-        <input type="text" placeholder="categoria">
+        <input type="text" name="categoria" placeholder="categoria">
         <button type="submit">Agregar</button>
         <table>
             <thead>
@@ -46,12 +46,14 @@
                </tr>
             </thead>
             <tbody>
+            {foreach $categorias as $categoria}
                 <tr>
-                    {foreach $categorias as $categoria}
+                    
                     <td>{$categoria.id_categoria}</td>
                     <td>{$categoria.categoria}</td>
-                    {/foreach}
+                    
                 </tr>
+            {/foreach}
             </tbody>
         </table>
        </form>

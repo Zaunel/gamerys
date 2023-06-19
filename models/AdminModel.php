@@ -9,7 +9,7 @@ class AdminModel{
 
  }
   
- public function obtenerJuegos() {
+ public function obtenerJuegos(){
   $query = $this->db->prepare('SELECT * FROM juegos');
   $query->execute();
   return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -35,6 +35,11 @@ public function subirJuego($imagen, $nombreJuego, $descJuego, $precioJuego, $cat
   $query = $this->db->prepare("SELECT imagen FROM juegos WHERE id_juego = ?"); 
   $query->execute([$id]);
   return $query->fetch(PDO::FETCH_COLUMN);
+ }
+
+ public function insertarCategoria($categoria){
+ $query = $this->db->prepare('INSERT INTO categorias (categoria) VALUES (?)');
+ $query-> execute([$categoria]);
  }
 
 }

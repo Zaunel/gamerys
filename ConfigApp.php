@@ -10,7 +10,8 @@ class ConfigApp{
     'ingresado' => 'UsuariosController#logear',
     'cerrar_sesion' => 'UsuariosController#logout',
     'juegos' => 'AdminController#insertarJuego',
-    'modificaciones' => 'AdminController#idEliminar'
+    'modificaciones' => 'AdminController#idEliminar',
+    'categorias' => 'AdminController#obtenerCategoria' 
     ];
 }
 

@@ -7,11 +7,11 @@ class AdminController{
     private $modelAdmin;
     private $modelCategorias;
     private $view;
-
     public function __construct(){
         $this->modelAdmin = new AdminModel();
         $this->modelCategorias = new CategoriasModel();
         $this->view = new Vista();
+    
     }
 
     public function insertarJuego()
@@ -78,6 +78,14 @@ class AdminController{
           }
           $this->modelAdmin->eliminarFila($id);
     }
+
+    public function obtenerCategoria(){
+        if(isset($_POST['categoria']) && !empty($_POST['categoria'])){
+         $categoria = $_POST['categoria'];
+        }
+        $this->modelAdmin->insertarCategoria($categoria); 
+       }
+    
 
 
 }
