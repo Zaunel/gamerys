@@ -52,11 +52,23 @@ class AdminController{
 }
 
     public function panelAdmin(){
-        $categorias = $this->modelCategorias->obtenerCategorias();
-        $juegos = $this->modelAdmin->obtenerJuegos();
-        $this->view->admin($categorias,$juegos);
+        $this->view->admin();
     }
 
+    public function panelAdminUsuarios(){
+        $this->view->adminUsuarios();
+    }
+   
+    public function panelAdminCategorias(){
+     $categorias = $this->modelCategorias->obtenerCategorias();
+     $this->view->adminCategorias($categorias);
+    }
+
+    public function panelAdminJuegos(){
+    $categorias = $this->modelCategorias->obtenerCategorias();
+    $juegos = $this->modelAdmin->obtenerJuegos();
+    $this->view->adminJuegos($juegos,$categorias);
+    }
     public function idEliminar(){
         if (isset($_POST['btn_eliminar'])) {
             $id = $_POST['btn_eliminar'];

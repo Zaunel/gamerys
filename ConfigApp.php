@@ -9,9 +9,12 @@ class ConfigApp{
     'registro' => 'UsuariosController#registrar',
     'ingresado' => 'UsuariosController#logear',
     'cerrar_sesion' => 'UsuariosController#logout',
-    'juegos' => 'AdminController#insertarJuego',
-    'modificaciones' => 'AdminController#idEliminar',
-    'categorias' => 'AdminController#obtenerCategoria' 
+    'juegoss' => 'AdminController#insertarJuego',
+    // 'modificaciones' => 'AdminController#idEliminar',
+    'categoria' => 'AdminController#obtenerCategoria',
+    'admin/usuarios' => 'AdminController#panelAdminUsuarios',
+    'categorias' => 'AdminController#panelAdminCategorias',
+    'juegos' => 'AdminController#panelAdminJuegos'
     ];
 }
 

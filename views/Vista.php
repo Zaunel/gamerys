@@ -3,9 +3,9 @@ require_once 'libs/smarty/Smarty.class.php';
 class Vista{  
    private $smarty;
    private $logeado;
-   private $rutaBase;
    public function __construct() {
     $this->smarty = new Smarty();
+    
    }
 
    function home(){
@@ -20,12 +20,35 @@ class Vista{
       }
    }
 
-   function admin($categorias,$juegos){
-      $this->smarty->assign("categorias", $categorias); 
-      $this->smarty->assign("juegos", $juegos);
+   function admin(){
+      $template = '';
+      $this->smarty->assign('rutaAdmin', BASE_ADMIN);
+      $this->smarty->assign('template', $template);
+      // 
+      // $this->smarty->assign("juegos", $juegos);
       $this->smarty->display('admin.tpl');
    }
 
+  function adminUsuarios(){
+   $template = 'usuarios';
+      $this->smarty->assign("template",$template);
+      $this->smarty->display('admin.tpl');
+  }
+
+  function adminCategorias($categorias){
+   $template = 'categorias';
+      $this->smarty->assign("categorias", $categorias); 
+      $this->smarty->assign("template",$template);
+      $this->smarty->display('admin.tpl');
+  }
+   
+  function adminJuegos($juegos,$categorias){
+   $template = 'juegos';
+      $this->smarty->assign("categorias", $categorias); 
+      $this->smarty->assign("juegos", $juegos); 
+      $this->smarty->assign("template",$template);
+      $this->smarty->display('admin.tpl');
+  }
    function login(){
       $logeado = isset($_SESSION['logeado']) ? $_SESSION['logeado'] : false;
       $this->smarty->assign("logeado", $logeado);
