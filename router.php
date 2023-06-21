@@ -1,14 +1,20 @@
 <?php
 require_once "ConfigApp.php";
 require_once "controllers/Controlador.php";
-require_once "views/Vista.php";
+require_once "views/defaultView.php";
 require_once "controllers/UsuariosController.php";
 require_once "models/UsuariosModel.php";
-require_once "models/AdminModel.php";
+require_once "models/JuegosModel.php";
 require_once "controllers/AdminController.php";
 require_once "models/CategoriasModel.php";
+require_once "views/AdminView.php";
+require_once "views/UsuariosView.php";
 
 define('BASE_ADMIN', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/admin');
+define('BASE_JUEGOS', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/juegos');
+define('BASE_CATEGORIAS', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/categorias');
+define('BASE_RUTA', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
 
 function parseURL($url){
   $partesURL = explode("/", $url);

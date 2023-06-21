@@ -1,17 +1,19 @@
-{if $logeado}
-  {include file='header.tpl'}
-  <main>
-    <section class="galeria"></section>
-  </main>
-  <script src="main.js"></script>
+{include file='header.tpl'}
+
+ <section class="section_galery">
+    {foreach $juegos as $juego}
+      {$url = "{BASE_JUEGOS}/{$juego.juego}"}
+    {$modifyUrl = str_replace(" ","-",$url)}
+    <a class="sectionA" href={$modifyUrl}><img class="imagen_galery" src="imagenes/{$juego.imagen}"></a>
+    {/foreach}
+ </section>
+
+
+
+
+
+  
 </body>
-{else}
-  {include file='header.tpl'}
-  <main>
-    <section class="galeria"></section>
-  </main>
-  <script src="main.js"></script>
-</body>
-{/if}
+
 
 {include file='footer.tpl'}

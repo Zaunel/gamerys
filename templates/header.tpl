@@ -2,48 +2,32 @@
 <html lang="en">
   <head>
     <script src="https://kit.fontawesome.com/7099935636.js" crossorigin="anonymous"></script>
+    <base href="{BASE_RUTA}">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Gamerys</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="nav_parteUno">
-         <div class="nav_logo">
-          <a href="home"><img src="imagenes/logo.png" alt="logo" /></a>
-          </div>
-          <div class="nav_form">
-            <form action="">
-              <input
-                class="nav_buscador"
-                type="text"
-                placeholder="¿A que quieres jugar?"
-              />
-            </form>
-              <i class="fa-solid fa-magnifying-glass iconos" style="color: #000000;"></i>
-          </div>
-            
-
-          {if $logeado}
-            <button class="usuario_logeado" id="btn_usuario_logeado">{$usuario}</button>
-            <a href="cerrar_sesion">Cerrar sesión</a>
-            <button class="boton_nav3">
-          {else}
-          <button class="boton_nav boton_nav1" id="btn_login"><a href="login">Iniciar sesión</a></button>
-          <button class="boton_nav boton_nav2" id="btn_registro"><a href="registro">Registrarse</a></button>
-          <button class="boton_nav3">
-          {/if}
-            <i class="fa-solid fa-cart-shopping icon_cart"></i>
-          </button>
-        </div>
-        <ul class="nav_parteDos">
-          <li><a>Categorías</a></li>
-          <li><a>PC</a></li>
-          <li><a>Xbox</a></li>
-          <li><a>PlayStation</a></li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+  <nav>
+      <ul class='nav-bar'>
+          <li class='logo'><a href='home'><img src='imagenes/logo2.png'/></a></li>
+          <input type='checkbox' id='check' />
+          <span class="menu">
+              <li><a href="home">Inicio</a></li>
+              <li><a href="categorias">Categorías</a></li>
+              {if $logeado}
+                <li><a href="#">{$usuario}</a></li>
+                <li><a href="salir">Cerrar sessión</a></li>
+              {else}
+                <li><a href="login">Iniciar Sesión</a></li>
+                <li><a href="registro">Registrarse</a></li>
+              {/if}
+              <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+          </span>
+          <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+      </ul>
+  </nav>
+  </header>

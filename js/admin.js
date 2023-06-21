@@ -7,7 +7,7 @@ const btn_agregar = document.getElementById('agregar_juego');
 const input_id_juego = document.getElementById('input_id_juego');
 btn_modificar.classList.add('occult');
 
-document.querySelectorAll('#tabla .btn_modificar').forEach(function(btn) {
+document.querySelectorAll('.tabla .btn_modificar').forEach(function(btn) {
     btn.addEventListener('click', function(event) {
       event.preventDefault(); 
       btn_agregar.classList.add('occult');
@@ -37,7 +37,7 @@ const input_categoria = document.getElementById('input_categoria');
 
 btn_modificar_categoria.classList.add('occult');
 
-document.querySelectorAll('#tabla2 .btn_modificar2').forEach(function(btn) {
+document.querySelectorAll('.tabla .btn_modificar2').forEach(function(btn) {
     btn.addEventListener('click',function(event){
     event.preventDefault();
     btn_agregar_categoria.classList.add('occult');
@@ -50,3 +50,4 @@ document.querySelectorAll('#tabla2 .btn_modificar2').forEach(function(btn) {
     })
 });
 }
+

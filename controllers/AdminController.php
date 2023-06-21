@@ -1,20 +1,21 @@
 <?php
-require_once('models/AdminModel.php');
-require_once('views/Vista.php');
+require_once('models/JuegosModel.php');
+require_once('views/defaultView.php');
 require_once('models/CategoriasModel.php');
 
 class AdminController
 {
-    private $modelAdmin;
-    private $modelCategorias;
-    private $view;
+    private $JuegosModel;
+    private $CategoriasModel;
+    private $defaultView;
     public function __construct()
     {
-        $this->modelAdmin = new AdminModel();
-        $this->modelCategorias = new CategoriasModel();
-        $this->view = new Vista();
+        $this->JuegosModel = new JuegosModel();
+        $this->CategoriasModel = new CategoriasModel();
+        $this->defaultView = new AdminVista();
     }
 
+    
     public function requestGame()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -37,7 +38,7 @@ class AdminController
             $precioJuego = $_POST['precio-juego'];
             $categorias = $_POST['categorias'];
 
-            $count = $this->modelAdmin->verificarJuego($nombreJuego);
+            $count = $this->JuegosModel->verificarJuego($nombreJuego);
             if ($count < 1) {
                 // Ruta de la carpeta donde se guardarán las imágenes
                 $carpeta_destino = 'imagenes';
@@ -48,7 +49,7 @@ class AdminController
                 // Mover el archivo subido a la carpeta de destino
                 if (move_uploaded_file($archivo_temporal, $destino)) {
                     // Guardar el nombre del archivo en la base de datos
-                    $this->modelAdmin->subirJuego($nombre_archivo, $nombreJuego, $descJuego, $precioJuego, $categorias);
+                    $this->JuegosModel->subirJuego($nombre_archivo, $nombreJuego, $descJuego, $precioJuego, $categorias);
                     header("Location: admin/juegos");
                 } else {
                     // Error al mover el archivo
@@ -83,7 +84,7 @@ class AdminController
             // Mover el archivo subido a la carpeta de destino
             if (move_uploaded_file($archivo_temporal, $destino)) {
                 // Guardar el nombre del archivo en la base de datos
-                $this->modelAdmin->modificarJuego($nombre_archivo, $nombreJuego, $descJuego, $precioJuego, $categorias, $id_juego);
+                $this->JuegosModel->modificarJuego($nombre_archivo, $nombreJuego, $descJuego, $precioJuego, $categorias, $id_juego);
                 header('Location: admin/juegos');
             } else {
                 // Error al mover el archivo
@@ -93,16 +94,16 @@ class AdminController
     }
     public function panelAdmin($params=null)
     {  
-        $juegos = $this->modelAdmin->obtenerJuegos();
-        $categorias = $this->modelCategorias->obtenerCategorias();
-        $this->view->admin($params,$juegos,$categorias);
+        $juegos = $this->JuegosModel->obtenerJuegos();
+        $categorias = $this->CategoriasModel->obtenerCategorias();
+        $this->defaultView->admin($params,$juegos,$categorias);
     }
 
     public function idJuegoEliminar()
     {   
         if (isset($_POST['btn_eliminar'])) {
             $id = $_POST['btn_eliminar'];
-            $imagen = $this->modelAdmin->obtenerImagen($id);
+            $imagen = $this->JuegosModel->obtenerImagen($id);
             $ruta = "imagenes/" . $imagen;
             echo $imagen;
             if (file_exists($ruta)) {
@@ -118,7 +119,7 @@ class AdminController
                 echo "El archivo no existe.";
             }
         }
-        $this->modelAdmin->eliminarJuego($id); 
+        $this->JuegosModel->eliminarJuego($id); 
         header('Location: admin/juegos');
     }
 
@@ -140,9 +141,9 @@ class AdminController
   public function insertarValoresCategoria(){
     if (isset($_POST['categoria']) && !empty($_POST['categoria'])) {
         $categoria = $_POST['categoria'];
-        $count = $this->modelAdmin->verificarCategoria($categoria); 
+        $count = $this->CategoriasModel->verificarCategoria($categoria); 
         if($count < 1){
-            $this->modelAdmin->insertarCategoria($categoria);
+            $this->CategoriasModel->insertarCategoria($categoria);
             header('Location: admin/categorias');
         }else{
             echo "La categoria ya existe";
@@ -155,7 +156,7 @@ class AdminController
     if(isset($_POST['categoria']) && !empty($_POST['categoria']) && isset($_POST['id_categoria']) && isset($_POST['id_categoria'])){
     $categoria = $_POST['categoria'];
     $id_categoria = $_POST['id_categoria'];
-    $this->modelAdmin->modificarCategoria($categoria,$id_categoria);
+    $this->CategoriasModel->modificarCategoria($categoria,$id_categoria);
     header('Location: admin/categorias');
     }
   }
@@ -163,7 +164,7 @@ class AdminController
   public function idCategoriaEliminar(){
     if(isset($_POST['categoria_eliminar'])){
     $id = $_POST['categoria_eliminar'];
-    $this->modelAdmin->eliminarCategoria($id);
+    $this->CategoriasModel->eliminarCategoria($id);
     header('Location: admin/categorias');
     }
   }

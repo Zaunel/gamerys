@@ -1,18 +1,18 @@
   {include file='header.tpl'}
-  <section class="contain_login">
-    <div>
-      <h1>Iniciar Sesión</h1>
-      <form action="ingresado" method="POST">
-        <label for="username">Nombre de usuario:</label><br>
-        <input type="email" id="username" name="email" required><br><br>
-
-        <label for="password">Contraseña:</label><br>
-        <input type="password" id="password" name="contraseña" required><br><br>
-
-        <input class="btn_submit" type="submit" value="Iniciar sesión">
-        <p>¿No tienes una cuenta? <a href="registro"> Registrate</a></p>
-      </form>
-    </div>
-  </section>
+  <div class="container">
+  <div class="form-container">
+    <h2>Iniciar sesión</h2>
+    <form action="ingresado" method="post">
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="contraseña" placeholder="Ingrese su contraseña" required>
+      </div>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </div>
   </body>
 {include file='footer.tpl'}
