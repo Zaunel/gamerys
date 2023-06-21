@@ -15,15 +15,15 @@ class AdminController
         $this->defaultView = new AdminVista();
     }
 
-    
+
     public function requestGame()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["agregar_juego"])) {
-              $this->agregarJuego();
+                $this->agregarJuego();
             } elseif (isset($_POST["modificar_juego"])) {
-            $this->modificarJuego();
-            } elseif (isset($_POST['btn_eliminar'])){
+                $this->modificarJuego();
+            } elseif (isset($_POST['btn_eliminar'])) {
                 $this->idJuegoEliminar();
             }
         }
@@ -92,15 +92,15 @@ class AdminController
             }
         }
     }
-    public function panelAdmin($params=null)
-    {  
+    public function panelAdmin($params = null)
+    {
         $juegos = $this->JuegosModel->obtenerJuegos();
         $categorias = $this->CategoriasModel->obtenerCategorias();
-        $this->defaultView->admin($params,$juegos,$categorias);
+        $this->defaultView->admin($params, $juegos, $categorias);
     }
 
     public function idJuegoEliminar()
-    {   
+    {
         if (isset($_POST['btn_eliminar'])) {
             $id = $_POST['btn_eliminar'];
             $imagen = $this->JuegosModel->obtenerImagen($id);
@@ -119,53 +119,54 @@ class AdminController
                 echo "El archivo no existe.";
             }
         }
-        $this->JuegosModel->eliminarJuego($id); 
+        $this->JuegosModel->eliminarJuego($id);
         header('Location: admin/juegos');
     }
 
     public function requestCategory()
     {
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(isset($_POST['agregar_categoria'])){
-            $this->insertarValoresCategoria();
-        }elseif(isset($_POST['modificar_categoria'])){
-          $this->modificarValoresCategoria();
-        }elseif(isset($_POST['categoria_eliminar'])){
-            $this->idCategoriaEliminar();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['agregar_categoria'])) {
+                $this->insertarValoresCategoria();
+            } elseif (isset($_POST['modificar_categoria'])) {
+                $this->modificarValoresCategoria();
+            } elseif (isset($_POST['categoria_eliminar'])) {
+                $this->idCategoriaEliminar();
+            }
         }
-        }
-       
     }
 
 
-  public function insertarValoresCategoria(){
-    if (isset($_POST['categoria']) && !empty($_POST['categoria'])) {
-        $categoria = $_POST['categoria'];
-        $count = $this->CategoriasModel->verificarCategoria($categoria); 
-        if($count < 1){
-            $this->CategoriasModel->insertarCategoria($categoria);
+    public function insertarValoresCategoria()
+    {
+        if (isset($_POST['categoria']) && !empty($_POST['categoria'])) {
+            $categoria = $_POST['categoria'];
+            $count = $this->CategoriasModel->verificarCategoria($categoria);
+            if ($count < 1) {
+                $this->CategoriasModel->insertarCategoria($categoria);
+                header('Location: admin/categorias');
+            } else {
+                echo "La categoria ya existe";
+            }
+        }
+    }
+
+    public function modificarValoresCategoria()
+    {
+        if (isset($_POST['categoria']) && !empty($_POST['categoria']) && isset($_POST['id_categoria']) && isset($_POST['id_categoria'])) {
+            $categoria = $_POST['categoria'];
+            $id_categoria = $_POST['id_categoria'];
+            $this->CategoriasModel->modificarCategoria($categoria, $id_categoria);
             header('Location: admin/categorias');
-        }else{
-            echo "La categoria ya existe";
         }
-     
     }
-  }
 
-  public function modificarValoresCategoria(){
-    if(isset($_POST['categoria']) && !empty($_POST['categoria']) && isset($_POST['id_categoria']) && isset($_POST['id_categoria'])){
-    $categoria = $_POST['categoria'];
-    $id_categoria = $_POST['id_categoria'];
-    $this->CategoriasModel->modificarCategoria($categoria,$id_categoria);
-    header('Location: admin/categorias');
+    public function idCategoriaEliminar()
+    {
+        if (isset($_POST['categoria_eliminar'])) {
+            $id = $_POST['categoria_eliminar'];
+            $this->CategoriasModel->eliminarCategoria($id);
+            header('Location: admin/categorias');
+        }
     }
-  }
-
-  public function idCategoriaEliminar(){
-    if(isset($_POST['categoria_eliminar'])){
-    $id = $_POST['categoria_eliminar'];
-    $this->CategoriasModel->eliminarCategoria($id);
-    header('Location: admin/categorias');
-    }
-  }
 }

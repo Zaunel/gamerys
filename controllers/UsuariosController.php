@@ -36,8 +36,9 @@ class UsuariosController
                 $_SESSION["logeado"] = true;
                 $_SESSION["email"] = $email;
                 $_SESSION["username"] = $usuario;
-                $this->defaultView->home($juegos);
                 header("Location: home");
+                $this->defaultView->home($juegos);
+                
             }
         } else {
             $registro = true;
