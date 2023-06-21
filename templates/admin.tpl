@@ -2,9 +2,9 @@
 <body>
     <header class="header_admin">
         <nav class="nav_admin">
-            <a href="usuarios">Usuarios</a>
-            <a href="categorias">Categorías</a>
-            <a href="juegos">Juegos</a>
+            <a href="admin/usuarios">Usuarios</a>
+            <a href="admin/categorias">Categorías</a>
+            <a href="admin/juegos">Juegos</a>
         </nav>
     </header>
     {if $template == 'usuarios'}
@@ -15,6 +15,6 @@
     {include file='juegos.tpl'}
     {else $template == ''}
     {/if}
-
+<script src="admin.js"></script>
 </body>
 </html>

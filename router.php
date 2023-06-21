@@ -8,19 +8,14 @@ require_once "models/AdminModel.php";
 require_once "controllers/AdminController.php";
 require_once "models/CategoriasModel.php";
 
-define('BASE_ADMIN', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+define('BASE_ADMIN', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/admin');
 
 function parseURL($url){
   $partesURL = explode("/", $url);
 
-  $arrayReturn[ConfigApp::$ACTION] = $partesURL[0]; // Obtener la acción principal
+  $arrayReturn[ConfigApp::$ACTION] = $partesURL[0];
+  $arrayReturn[ConfigApp::$PARAMS] = isset($partesURL[1]) ? array_slice($partesURL, 1) : null;
 
-  // Verificar si hay una ruta adicional después de la acción principal
-  if (isset($partesURL[1]) && $partesURL[1] !== '') {
-      $arrayReturn[ConfigApp::$ACTION] .= '/' . $partesURL[1]; // Agregar la ruta adicional a la acción
-  }
-
-  $arrayReturn[ConfigApp::$PARAMS] = isset($partesURL[2]) ? array_slice($partesURL, 2) : null; // Obtener los parámetros a partir del índice 2
   return $arrayReturn;
 }
 $urlData = parseURL($_GET[ConfigApp::$ACTION]);
